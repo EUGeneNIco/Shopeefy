@@ -1,0 +1,14 @@
+<div class="header">
+    <div class="container">
+        <img src="assets/shopee.png" alt="logo">
+        <div class="menu">
+            <ul>
+                <li *ngFor="let item of productCategories" (click)="goToProductPage(item.route)">{{item.name}}</li>
+            </ul>
+        </div>
+        <a [routerLink]="['/cart']"><span class="material-symbols-outlined cart">
+                shopping_cart
+            </span>
+        </a>
+    </div>
+</div>
