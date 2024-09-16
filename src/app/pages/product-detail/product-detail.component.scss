@@ -1,0 +1,110 @@
+.container {
+  width: 100%;
+  padding: 10px;
+
+  // border: solid 2px red;
+}
+
+.content {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  gap: 2rem;
+
+  img {
+    width: 50%;
+  }
+
+  .details {
+    // border: solid 2px violet;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .rating {
+    padding: 0;
+    margin: 0;
+  }
+
+  .rating li {
+    color: rgba(42, 188, 5, 0.635);
+  }
+
+  .rating p {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  .price {
+    font-size: xx-large;
+    font-weight: 600;
+    margin: 20px 0;
+    color: orange;
+  }
+
+  .description {
+    font-size: small;
+  }
+
+  h1 {
+    font-weight: 600;
+  }
+
+  .variant {
+    p {
+      font-weight: 600;
+    }
+
+    ul {
+      display: flex;
+      gap: 5px;
+    }
+
+    li {
+      border: solid 1px black;
+      padding: 3px;
+      min-width: 50px;
+      height: 50px;
+      text-align: center;
+      align-content: center;
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  button {
+    width: 100%;
+    height: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .buy-button {
+    color: black;
+    background-color: #fff;
+    border: solid 1px;
+  }
+
+  .cart-button {
+    color: #fff;
+    background-color: rgb(48, 119, 196);
+    border: none !important;
+  }
+
+  // border: solid 2px green;
+}

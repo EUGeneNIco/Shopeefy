@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="content" *ngIf="item !== null">
+        <img src="assets/products/{{item.category}}/{{item.id}}.png" alt="">
+        <div class="details">
+            <h1>{{item.name}}</h1>
+            <p>by: {{item.store}}</p>
+            <p class="description">{{item.description}}</p>
+            <ul class="rating">
+                <li *ngFor="let star of numSequence(item.rating)">
+                    <span class="material-symbols-outlined">
+                        star_rate
+                    </span>
+                </li>
+                <p>({{item.orders}})</p>
+            </ul>
+            <p class="price">{{item.price}}</p>
+            <div class="variant">
+                <p>SELECT {{item.category === gadgetType ? 'COLOR' : 'SIZE'}}: </p>
+                <ul>
+                    <li *ngFor="let va of item.variations">{{va}}</li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button class="cart-button">
+                    ADD TO CART
+                </button>
+                <button class="buy-button">BUY IT NOW</button>
+            </div>
+        </div>
+    </div>
+</div>

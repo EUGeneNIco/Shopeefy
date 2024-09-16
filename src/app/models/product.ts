@@ -8,4 +8,6 @@ export interface Product {
     rating: number,
     orders: number,
     category: PRODUCTS,
+    store: string,
+    variations: string[]
 }

@@ -3,7 +3,7 @@
         <p class="info"><strong>{{productItems.length}}</strong> items for {{category}}</p>
         <div class="products">
             <p *ngIf="productItems.length === 0">Loading...</p>
-            <div class="product-item" *ngFor="let item of productItems">
+            <div class="product-item" *ngFor="let item of productItems" (click)="viewProductDetails(item.id)">
                 <div class="figure">
                     <img src="assets/products/{{item.category}}/{{item.id}}.png" alt="product" />
                 </div>

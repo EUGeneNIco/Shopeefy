@@ -1,20 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 import { Product } from '../../models/product';
 import { PRODUCTS } from '../../models/products.enum';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.scss'
+  imports: [CommonModule, MatButtonModule],
+  templateUrl: './product-detail.component.html',
+  styleUrl: './product-detail.component.scss'
 })
-export class ProductsComponent {
-  category!: string;
-  productItems!: Product[];
-
+export class ProductDetailComponent {
+  item!: Product;
+  gadgetType = PRODUCTS.gadgets;
   products: Product[] = [
     {
       "id": 1,
@@ -205,25 +206,18 @@ export class ProductsComponent {
     }
   ];
 
-
   constructor(
-    public route: ActivatedRoute,
-    public router: Router
+    public route: ActivatedRoute
   ) {
     this.route.params.subscribe((p: any) => {
-      if (p['cat'])
-        this.category = p['cat'];
-      else {
-        this.router.navigate(['products', PRODUCTS.clothes]);
+      if (p['productId']) {
+        const productId = +p['productId'];
+
+        const item = this.products.find(x => x.id === productId);
+        if (item)
+          this.item = item;
       }
-
-      this.productItems = this.products.filter(p => p.category == this.category);
     });
-
-  }
-
-  viewProductDetails(productId: number) {
-    this.router.navigate(['products/detail', productId]);
   }
 
   numSequence(n: number) {
