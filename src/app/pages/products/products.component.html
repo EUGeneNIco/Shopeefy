@@ -1,14 +1,15 @@
 <div class="container">
     <div class="content">
-        <p class="info"><strong>{{products.length}}</strong> items for {{category}}</p>
+        <p class="info"><strong>{{productItems.length}}</strong> items for {{category}}</p>
         <div class="products">
-            <div class="product-item" *ngFor="let item of products">
+            <p *ngIf="productItems.length === 0">Loading...</p>
+            <div class="product-item" *ngFor="let item of productItems">
                 <div class="figure">
-                    <img src="assets/products/{{item.type}}/{{item.id}}.png" alt="product" />
+                    <img src="assets/products/{{item.category}}/{{item.id}}.png" alt="product" />
                 </div>
                 <p class="name">{{item.name}}</p>
                 <div class="label">
-                    <p>${{item.price}}</p>
+                    <p>{{item.price}}</p>
                     <ul class="rating">
                         <li *ngFor="let star of numSequence(item.rating)">
                             <span class="material-symbols-outlined">

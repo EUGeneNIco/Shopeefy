@@ -6,7 +6,7 @@
 }
 
 .content {
-  padding-top: 40px;
+  padding: 40px 0;
   // border: solid 2px green;
 
   .info {
@@ -24,6 +24,7 @@
 
   .product-item {
     width: 250px;
+    min-height: 300px !important;
 
     border-radius: 20px;
     // border: solid 2px rgb(0, 0, 0);
@@ -32,17 +33,20 @@
 
     .figure {
       overflow: hidden;
+      border-radius: 20px 20px 0 0;
     }
 
     img {
       width: 100%;
+      // border-radius: 20px 20px 0 0;
       z-index: -2;
       transform: scale(1);
       transition: 0.3s ease-in-out;
 
       &:hover {
+        // border-radius: 20px 20px 0 0;
         transform: scale(1.2);
-        opacity: 0.85;
+        opacity: 0.9;
       }
     }
 
