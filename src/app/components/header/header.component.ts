@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
+import { CartItem } from '../../models/cartItem';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class HeaderComponent {
     public cartService: CartService
   ) {
     this.cartService.carItems$.subscribe({
-      next: (value: Product[]) => {
+      next: (value: CartItem[]) => {
         this.cartItemsCount.set(value.length);
       },
       error: (e) => {

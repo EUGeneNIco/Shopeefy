@@ -5,6 +5,7 @@ import { PRODUCTS } from '../../models/products.enum';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { products } from '../../components/data/products';
+import { CartItem } from '../../models/cartItem';
 
 
 @Component({
@@ -16,8 +17,15 @@ import { products } from '../../components/data/products';
 })
 export class ProductDetailComponent {
   item!: Product;
+  selectedItemVariation!: string;
   gadgetType = PRODUCTS.gadgets;
   products: Product[] = products;
+
+  get hasSelectedVariation() {
+    return this.selectedItemVariation !== undefined &&
+      this.selectedItemVariation &&
+      this.selectedItemVariation !== ''
+  }
 
   constructor(
     public route: ActivatedRoute,
@@ -34,8 +42,19 @@ export class ProductDetailComponent {
     });
   }
 
+  onSelectVariation(itemVariation: string) {
+    this.selectedItemVariation = itemVariation;
+  }
+
   addToCart() {
-    this.cartService.addToCart(this.item);
+    const cartItem: CartItem = {
+      productId: this.item.id,
+      quantity: 1, // for now,
+      variation: this.selectedItemVariation
+    };
+
+    this.cartService.addToCart(cartItem);
+    this.selectedItemVariation = '';
   }
 
   numSequence(n: number) {

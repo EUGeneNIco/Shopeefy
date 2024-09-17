@@ -17,14 +17,17 @@
             <div class="variant">
                 <p>SELECT {{item.category === gadgetType ? 'COLOR' : 'SIZE'}}: </p>
                 <ul>
-                    <li *ngFor="let va of item.variations">{{va}}</li>
+                    <li [ngClass]="{selected: selectedItemVariation === iv}" *ngFor="let iv of item.variations"
+                        (click)="onSelectVariation(iv)">{{iv}}</li>
                 </ul>
             </div>
             <div class="buttons">
-                <button class="cart-button" (click)="addToCart()">
+                <button [ngClass]="{disabled: !hasSelectedVariation}" [disabled]="!hasSelectedVariation"
+                    class="cart-button" (click)="addToCart()">
                     ADD TO CART
                 </button>
-                <button class="buy-button">BUY NOW</button>
+                <button [ngClass]="{disabled: !hasSelectedVariation}" [disabled]="!hasSelectedVariation"
+                    class="buy-button">BUY NOW</button>
             </div>
         </div>
     </div>

@@ -59,6 +59,13 @@
       font-weight: 600;
     }
 
+    .selected {
+      // border: solid 3px orange;
+      color: white;
+      background-color: orange;
+      border: none;
+    }
+
     ul {
       display: flex;
       gap: 5px;
@@ -103,6 +110,12 @@
     color: #fff;
     background-color: rgb(48, 119, 196);
     border: none !important;
+  }
+
+  .disabled {
+    background-color: #a5a1a1;
+    border: none;
+    color: #fff;
   }
 
   // border: solid 2px green;
