@@ -2,7 +2,7 @@
     <div class="content" *ngIf="item !== null">
         <img src="assets/products/{{item.category}}/{{item.id}}.png" alt="">
         <div class="details">
-            <h1>{{item.name}}</h1>
+            <p class="title">{{item.name}}</p>
             <p>by: {{item.store}}</p>
             <p class="description">{{item.description}}</p>
             <ul class="rating">
@@ -11,7 +11,7 @@
                         star_rate
                     </span>
                 </li>
-                <p>({{item.orders}})</p>
+                <p>{{item.orders}} orders</p>
             </ul>
             <p class="price">{{item.price}}</p>
             <div class="variant">
@@ -21,10 +21,10 @@
                 </ul>
             </div>
             <div class="buttons">
-                <button class="cart-button">
+                <button class="cart-button" (click)="addToCart()">
                     ADD TO CART
                 </button>
-                <button class="buy-button">BUY IT NOW</button>
+                <button class="buy-button">BUY NOW</button>
             </div>
         </div>
     </div>
