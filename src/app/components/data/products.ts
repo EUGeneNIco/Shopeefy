@@ -74,7 +74,7 @@ export const products = [
     variations: ["M", "L", "XL"],
   },
   {
-    id: 11,
+    id: 7,
     name: "Nike Air Max",
     description:
       "Breathable and comfortable running shoes featuring Nike's iconic air cushioning system for optimal support during your runs.",
@@ -86,7 +86,7 @@ export const products = [
     variations: ["7", "8", "9", "10", "11", "12"],
   },
   {
-    id: 12,
+    id: 8,
     name: "Adidas Ultraboost",
     description:
       "High-performance running shoes with responsive cushioning, designed for long-distance runs and all-day comfort.",
@@ -98,7 +98,7 @@ export const products = [
     variations: ["6", "7", "8", "9", "10", "11"],
   },
   {
-    id: 13,
+    id: 9,
     name: "Puma Ignite",
     description:
       "Lightweight trainers offering flexibility and support, perfect for high-intensity workouts or daily wear.",
@@ -110,7 +110,7 @@ export const products = [
     variations: ["6", "7", "8", "9", "10"],
   },
   {
-    id: 14,
+    id: 10,
     name: "Reebok Classic",
     description:
       "A timeless sneaker design with updated comfort, suitable for casual wear and light activities.",
@@ -122,7 +122,7 @@ export const products = [
     variations: ["7", "8", "9", "10", "11", "12"],
   },
   {
-    id: 15,
+    id: 11,
     name: "Converse All Star",
     description:
       "Iconic high-top canvas shoes, beloved for their versatile style and durable construction. A must-have for any casual wardrobe.",
@@ -134,7 +134,7 @@ export const products = [
     variations: ["6", "7", "8", "9", "10", "11"],
   },
   {
-    id: 16,
+    id: 12,
     name: "New Balance 574",
     description:
       "A reliable and comfortable sneaker with a retro design. Ideal for both casual wear and light exercise.",
@@ -146,7 +146,7 @@ export const products = [
     variations: ["6", "7", "8", "9", "10", "11", "12"],
   },
   {
-    id: 26,
+    id: 13,
     name: "Apple iPhone 14",
     description:
       "The latest iPhone featuring the powerful A15 chip, 5G connectivity, and an enhanced camera system for stunning photos and videos.",
@@ -158,7 +158,7 @@ export const products = [
     variations: ["Black", "White", "Red", "Blue"],
   },
   {
-    id: 27,
+    id: 14,
     name: "Samsung Galaxy S22",
     description:
       "A flagship Android smartphone with a 120Hz display, 108MP camera, and cutting-edge performance for everyday tasks and gaming.",
@@ -170,7 +170,7 @@ export const products = [
     variations: ["Phantom Black", "Phantom White", "Green", "Pink Gold"],
   },
   {
-    id: 28,
+    id: 15,
     name: "Sony WH-1000XM4",
     description:
       "Industry-leading noise-canceling headphones that deliver exceptional sound quality, perfect for music lovers and frequent travelers.",
@@ -182,7 +182,7 @@ export const products = [
     variations: ["Black", "Silver"],
   },
   {
-    id: 29,
+    id: 16,
     name: "Apple Watch Series 7",
     description:
       "A smartwatch with advanced health features, including ECG, blood oxygen monitoring, and fitness tracking, designed for all-day wear.",
@@ -194,7 +194,7 @@ export const products = [
     variations: ["Starlight", "Midnight", "Green", "Blue", "Product Red"],
   },
   {
-    id: 30,
+    id: 17,
     name: "Amazon Echo Dot",
     description:
       "A compact smart speaker with Alexa built-in, capable of voice control, music streaming, and smart home integration.",

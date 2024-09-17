@@ -8,9 +8,9 @@
             </ul>
         </div>
         <a [routerLink]="['/cart']">
-            <span class="material-symbols-outlined cart" *ngIf="cartItemsCount === 0">shopping_cart</span>
-            <span class="material-symbols-outlined cart" *ngIf="cartItemsCount > 0"
-                [matBadge]="cartItemsCount">shopping_cart</span>
+            <span class="material-symbols-outlined cart" *ngIf="cartItemsCount() === 0">shopping_cart</span>
+            <span class="material-symbols-outlined cart" *ngIf="cartItemsCount() > 0"
+                [matBadge]="cartItemsCount()">shopping_cart</span>
         </a>
     </div>
 </div>
