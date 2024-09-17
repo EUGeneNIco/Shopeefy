@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -15,7 +15,7 @@ import { Product } from '../../models/product';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  cartItemsCount = 0;
+  cartItemsCount = signal(0);
 
   constructor(
     public router: Router,
@@ -23,7 +23,7 @@ export class HeaderComponent {
   ) {
     this.cartService.carItems$.subscribe({
       next: (value: Product[]) => {
-        this.cartItemsCount = value.length;
+        this.cartItemsCount.set(value.length);
       },
       error: (e) => {
         console.log(e);
