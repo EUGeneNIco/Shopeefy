@@ -1,1 +1,26 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="content">
+        <p class="title">Your Cart</p>
+        <p *ngIf="cartItemCount() === 0">You have no cart items.</p>
+        <table id="cartTable">
+            <tr *ngFor="let item of cartItems()">
+                <td><img src="assets/products/{{item.category}}/{{item.productId}}.png" alt=""></td>
+                <td class="name">{{item.name}}</td>
+                <td>{{item.variation}}</td>
+                <td>{{item.price | currency}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.totalPrice | currency}}</td>
+                <td>
+                    <span (click)="removeItem(item.productId, item.variation)" class="action material-symbols-outlined">
+                        delete
+                    </span>
+                </td>
+            </tr>
+        </table>
+        <div class="checkout" *ngIf="cartItemCount() > 0">
+            <p>Total ({{cartItemCount()}} {{cartItemCount() > 1 ? 'items' : 'item'}}): <span
+                    class="total">{{totalCartPrice() | currency}}</span></p>
+            <button>CHECKOUT</button>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@
                 </div>
                 <p class="name">{{item.name}}</p>
                 <div class="label">
-                    <p>{{item.price}}</p>
+                    <p>{{item.price | currency}}</p>
                     <ul class="rating">
                         <li *ngFor="let star of numSequence(item.rating)">
                             <span class="material-symbols-outlined">

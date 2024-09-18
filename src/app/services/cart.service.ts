@@ -21,4 +21,10 @@ export class CartService {
 
     this.toastrService.success('Item added to cart successfully.');
   }
+
+  removeItemFromCart(productId: number, variation: string) {
+    const currentItems = this.cartItems.getValue();
+    const cartItems = currentItems.filter(x => x.productId !== productId || x.variation !== variation);
+    this.cartItems.next(cartItems);
+  }
 }
