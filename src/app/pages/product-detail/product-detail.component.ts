@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { products } from '../../components/data/products';
 import { CartItem } from '../../models/cartItem';
+import { UiService } from '../../services/ui.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class ProductDetailComponent {
 
   constructor(
     public route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
   ) {
     this.route.params.subscribe((p: any) => {
       if (p['productId']) {

@@ -20,7 +20,7 @@
         <div class="checkout" *ngIf="cartItemCount() > 0">
             <p>Total ({{cartItemCount()}} {{cartItemCount() > 1 ? 'items' : 'item'}}): <span
                     class="total">{{totalCartPrice() | currency}}</span></p>
-            <button>CHECKOUT</button>
+            <button (click)="checkOut()">CHECKOUT</button>
         </div>
     </div>
 </div>

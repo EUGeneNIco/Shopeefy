@@ -4,7 +4,6 @@ import { CartItem } from '../../models/cartItem';
 import { CommonModule } from '@angular/common';
 import { products } from '../../components/data/products';
 import { MatIconModule } from '@angular/material/icon';
-import { reduce } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -59,5 +58,9 @@ export class CartComponent {
 
   removeItem(productId: number, variation: string) {
     this.cartService.removeItemFromCart(productId, variation);
+  }
+
+  checkOut() {
+    this.cartService.checkout();
   }
 }
