@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { CartItem } from '../models/cartItem';
 import { UiService } from './ui.service';
+import { products } from '../components/data/products';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +20,43 @@ export class CartService {
   addToCart(item: CartItem) {
     this.uiService.block();
 
-    const currentItems = this.cartItems.getValue();
-    this.cartItems.next([...currentItems, item]);
-
     setTimeout(() => {
+      const currentItems = this.cartItems.getValue();
+
+      let origPrice = 0
+      const productItem = products.find(x => x.id === item.productId);
+      if (productItem) origPrice = productItem.price;
+
+      let existingItemPrice: number | undefined = 0;
+      const existingItem = currentItems.find(x => x.productId === item.productId && x.variation === item.variation);
+
+      if (!existingItem) {
+        this.cartItems.next([...currentItems, item]);
+      }
+      else {
+        existingItemPrice = this.prepareExistingItems(existingItemPrice, origPrice, existingItem, item, currentItems);
+      }
+
       this.uiService.unBlock();
       this.toastrService.success('Item added to cart successfully.');
     }, 1000);
+  }
+
+  private prepareExistingItems(existingItemPrice: number | undefined, origPrice: number, existingItem: CartItem, item: CartItem, currentItems: CartItem[]) {
+    existingItemPrice = origPrice * existingItem.quantity;
+
+    existingItem.quantity += item.quantity;
+    existingItem.price = existingItemPrice + origPrice;
+
+    const diffProductItems = currentItems.filter(x => x.productId !== existingItem.productId);
+    const sameProductButDiffVariations = currentItems.filter(x => x.productId === existingItem.productId && x.variation !== item.variation);
+
+    this.cartItems.next([
+      ...diffProductItems,
+      ...sameProductButDiffVariations,
+      existingItem
+    ]);
+    return existingItemPrice;
   }
 
   removeItemFromCart(productId: number, variation: string) {
