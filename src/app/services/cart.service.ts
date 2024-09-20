@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CartItem } from '../models/cartItem';
 import { UiService } from './ui.service';
 import { products } from '../components/data/products';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class CartService {
   carItems$ = this.cartItems.asObservable();
 
   constructor(
-    private toastrService: ToastrService,
     private uiService: UiService,
+    private notifService: NotificationService,
   ) { }
 
   addToCart(item: CartItem) {
@@ -38,7 +39,7 @@ export class CartService {
       }
 
       this.uiService.unBlock();
-      this.toastrService.success('Item added to cart successfully.');
+      this.notifService.notifySuccess('Item added to cart successfully.');
     }, 1000);
   }
 
@@ -64,7 +65,7 @@ export class CartService {
     const cartItems = currentItems.filter(x => x.productId !== productId || x.variation !== variation);
     this.cartItems.next(cartItems);
 
-    this.toastrService.success('Item removed from cart.');
+    this.notifService.notifySuccess('Item removed from cart.');
   }
 
   checkout() {
@@ -73,7 +74,7 @@ export class CartService {
     // fake delay
     setTimeout(() => {
       this.uiService.unBlock();
-      this.toastrService.success('Checkout successful!');
+      this.notifService.notifySuccess('Checkout successful!');
       this.cartItems.next([]);
     }, 1000);
   }

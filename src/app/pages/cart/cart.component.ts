@@ -4,6 +4,7 @@ import { CartItem } from '../../models/cartItem';
 import { CommonModule } from '@angular/common';
 import { products } from '../../components/data/products';
 import { MatIconModule } from '@angular/material/icon';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-cart',
@@ -28,7 +29,8 @@ export class CartComponent {
   });
 
   constructor(
-    public cartService: CartService
+    public cartService: CartService,
+    public notifService: NotificationService,
   ) {
     this.cartService.carItems$.subscribe({
       next: (items: CartItem[]) => {
@@ -52,6 +54,7 @@ export class CartComponent {
       },
       error: (e) => {
         console.log(e);
+        this.notifService.notifyError(e.message);
       }
     })
   }
